@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Cinzel:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap');
+
+/* === LIGHT THEME (default - pastel pink) === */
+:root {
+  --bg-1: #FFF0F3;
+  --bg-2: #FFD9E2;
+  --bg-3: #FFC2D1;
+  --paper: #FFFBF8;
+  --rose-gold: #C9A07C;
+  --rose-gold-deep: #B07B5A;
+  --dusty-rose: #C97B89;
+  --deep-rose: #8B4A57;
+  --text-main: #6B3D4A;
+  --text-soft: #9A6E7A;
+  --line: rgba(176, 123, 90, 0.35);
+  --line-soft: rgba(176, 123, 90, 0.18);
+  --inner-box: rgba(255, 255, 255, 0.5);
+}
+
+/* === DARK THEME (navy blue night sky) === */
+:root[data-theme="dark"] {
+  --bg-1: #0A1438;
+  --bg-2: #1A2658;
+  --bg-3: #2D3D7A;
+  --paper: #1A2455;
+  --rose-gold: #B8C5E8;
+  --rose-gold-deep: #8FA0CC;
+  --dusty-rose: #C5BDE0;
+  --deep-rose: #F0DFEC;
+  --text-main: #EAE8F2;
+  --text-soft: #B0B5CC;
+  --line: rgba(184, 197, 232, 0.35);
+  --line-soft: rgba(184, 197, 232, 0.18);
+  --inner-box: rgba(45, 61, 122, 0.4);
+}
+
+html, body {
+  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-main);
+  font-family: 'Quicksand', sans-serif;
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+.tracked {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tracked-sm {
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.72rem;
+}
+
+.display-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.display-serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+
+.paper {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255, 214, 224, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255, 194, 209, 0.3) 0%, transparent 40%);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 5px 20px rgba(0, 0, 0, 0.1),
+    inset 0 0 80px rgba(255, 240, 243, 0.5);
+  transition: background-color 0.6s ease;
+}
+
+:root[data-theme="dark"] .paper {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(45, 61, 122, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(143, 160, 204, 0.2) 0%, transparent 40%);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 5px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 80px rgba(184, 197, 232, 0.05);
+}
+
+/* Override Tailwind bg-white opacities trong dark mode */
+:root[data-theme="dark"] .bg-white\/40 { background-color: rgba(45, 61, 122, 0.4) !important; }
+:root[data-theme="dark"] .bg-white\/50 { background-color: rgba(45, 61, 122, 0.5) !important; }
+:root[data-theme="dark"] .bg-white\/60 { background-color: rgba(45, 61, 122, 0.6) !important; }
+:root[data-theme="dark"] .bg-white\/70 { background-color: rgba(45, 61, 122, 0.7) !important; }
+:root[data-theme="dark"] .bg-white\/90 { background-color: rgba(45, 61, 122, 0.9) !important; }
+
+.dashed-border {
+  border: 1px dashed var(--line);
+}
+
+.label-box {
+  border: 1px solid var(--line);
+  padding: 0.55rem 1.4rem;
+  display: inline-block;
+}
+
+.slide-enter {
+  animation: slideIn 0.7s ease-out;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-btn {
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid var(--rose-gold);
+  background: rgba(255, 251, 248, 0.6);
+  color: var(--deep-rose);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+:root[data-theme="dark"] .nav-btn {
+  background: rgba(26, 36, 85, 0.6);
+}
+.nav-btn:hover:not(:disabled) {
+  background: var(--rose-gold);
+  color: white;
+}
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(176, 123, 90, 0.3);
+  transition: all 0.3s ease;
+}
+:root[data-theme="dark"] .page-dot {
+  background: rgba(184, 197, 232, 0.3);
+}
+.page-dot.active {
+  background: var(--rose-gold-deep);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Mobile responsive tweaks */
+@media (max-width: 640px) {
+  .nav-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
