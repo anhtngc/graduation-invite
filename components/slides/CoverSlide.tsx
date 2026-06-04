@@ -83,7 +83,7 @@ export function CoverSlide({ guestName }: Props) {
         {/* CHỖ CHÈN ẢNH */}
         <div className="relative mx-auto mb-6 w-44 h-56 md:w-52 md:h-64">
           <div className="absolute inset-0 dashed-border rounded-sm bg-white/50 overflow-hidden flex items-center justify-center">
-            <img src="/me.jpg" alt="" className="w-full h-full object-cover" />
+            <img src="/myself.png" alt="" className="w-full h-full object-cover" />
           </div>
           {/* Sparkles quanh ảnh - to hơn nữa */}
           <span className="absolute -top-5 -left-4 text-[var(--rose-gold)] text-3xl sparkle-twinkle" style={{ animationDelay: "0s" }}>♡</span>
